@@ -4,6 +4,19 @@ class Deck
   def initialize(cards)
     @cards = cards
   end
+
+  def rank_of_card_at
+    cards[0].rank
+  end
+
+
+
+
+
+
+
+
+
 end
 
 
