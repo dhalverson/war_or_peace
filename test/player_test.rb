@@ -17,8 +17,7 @@ class PlayerTest < Minitest::Test
 
   def test_it_exists
 
-    assert_instance_of @player, @player.name
-    assert_instance_of @deck, @player.deck
+    assert_instance_of Player, @player
   end
 
   def test_it_has_lost
@@ -31,5 +30,4 @@ class PlayerTest < Minitest::Test
     @player.deck.remove_card
     assert @player.has_lost?
   end
-
 end

@@ -8,7 +8,7 @@ class Player
   end
 
   def has_lost?
-    @deck.cards == []
+    @deck == []
   end
 
   def remove_card
