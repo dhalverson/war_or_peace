@@ -23,13 +23,13 @@ class TurnTest < Minitest::Test
     @maddeck2 = Deck.new([@card4, @card3, @madcard6, @card7])
     @wardeck1 = Deck.new([@card1, @card2, @card5, @card8])
     @wardeck2 = Deck.new([@card4, @card3, @card6, @card7])
-    @player1 = Player.new("Megan", @deck1)
-    @player2 = Player.new("Aurora", @deck2)
+    @basicplayer1 = Player.new("Megan", @deck1)
+    @basicplayer2 = Player.new("Aurora", @deck2)
     @madplayer1 = Player.new("Megan", @maddeck1)
     @madplayer2 = Player.new("Aurora", @maddeck2)
     @warplayer1 = Player.new("Megan", @wardeck1)
     @warplayer2 = Player.new("Aurora", @wardeck2)
-    @turn = Turn.new(@player1, @player2)
+    @turn = Turn.new(@basicplayer1, @basicplayer2)
     @madturn = Turn.new(@madplayer1, @madplayer2)
     @warturn = Turn.new(@warplayer1, @warplayer2)
   end
@@ -54,8 +54,31 @@ class TurnTest < Minitest::Test
     assert_equal :war, @warturn.type
   end
 
-    def test_it_has_a_turn_type_of_mad
+  def test_it_has_a_turn_type_of_mad
 
     assert_equal :mutually_assured_destruction, @madturn.type
   end
+
+  def test_if_it_equals_basic_winner_is_player_with_higher_rank_card_at_0
+
+    assert_equal @basicplayer1, @turn.winner
+  end
+
+  def test_it_sends_one_card_to_spoils_pile_if_basic
+
+    assert_equal [@card1, @card3], @turn.pile_cards
+  end
+
+  def test_it_sends_one_letter_to_spoils_pile
+
+  end
+
+  # def test_if_it_equals_war_winner_is_player_with_higher_rank_card_at_2
+  #
+  #   assert_equal @warplayer2, @warturn.winner
+  # end
+  #
+  # def test_if_it_equals_mad_if_both_players_cards_at_rank_0_and_2_are_the_same
+  #
+  #   assert_equal
 end
