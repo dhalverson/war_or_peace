@@ -69,9 +69,6 @@ class TurnTest < Minitest::Test
     assert_equal [@card1, @card3], @turn.pile_cards
   end
 
-  def test_it_sends_one_letter_to_spoils_pile
-
-  end
 
   # def test_if_it_equals_war_winner_is_player_with_higher_rank_card_at_2
   #
