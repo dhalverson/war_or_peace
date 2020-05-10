@@ -68,14 +68,17 @@ class TurnTest < Minitest::Test
 
     assert_equal [@card1, @card3], @turn.pile_cards
   end
+# test that checks three cards if war
+#test that checks three cards if mad
+
+  def test_if_it_equals_war_winner_is_player_with_higher_rank_card_at_2
+
+    assert_equal @warplayer2, @warturn.winner
+  end
+
+  def test_if_it_equals_mad_if_both_players_cards_at_rank_0_and_2_are_the_same
 
 
-  # def test_if_it_equals_war_winner_is_player_with_higher_rank_card_at_2
-  #
-  #   assert_equal @warplayer2, @warturn.winner
-  # end
-  #
-  # def test_if_it_equals_mad_if_both_players_cards_at_rank_0_and_2_are_the_same
-  #
-  #   assert_equal
+  end
+
 end

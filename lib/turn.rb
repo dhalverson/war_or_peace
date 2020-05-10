@@ -47,13 +47,19 @@ class Turn
     end
   end
 
+  # @spoils_of_war << player1.deck.remove_card
+  # @spoils_of_war << player2.deck.cards.shift
   def pile_cards
     if type == :basic
-      @spoils_of_war << @players.map { |x| x.deck.remove_card}
-      # @spoils_of_war << player1.deck.remove_card
-      # @spoils_of_war << player2.deck.cards.shift
+      @spoils_of_war << @players.map { |player| player.deck.remove_card}
+    elsif type == :war
+      @spoils_of_war << @players.map { |player| player.deck.remove_card(3)}
+    else
+      @players.map { |player| player.deck.remove card(3)}
     end
-
+      @spoils_of_war.flatten
   end
+
+
 
 end
