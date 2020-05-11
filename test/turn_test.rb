@@ -120,5 +120,15 @@ class TurnTest < Minitest::Test
     assert_equal [@card1, @card4, @card2, @card3, @card5, @card6], turn.pile_cards
   end
 
+  def test_it_discards_three_cards_per_player_if_mad
+    deck1 = Deck.new([@card1, @card2, @card5, @card8])
+    deck2 = Deck.new([@card4, @card3, @madcard, @card7])
 
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+    turn = Turn.new(player1, player2)
+
+    assert_equal [], turn.pile_cards
+
+  end
 end
