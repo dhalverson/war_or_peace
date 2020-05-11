@@ -82,6 +82,17 @@ class TurnTest < Minitest::Test
     assert_equal player1, turn.winner
   end
 
+  def test_it_equals_war_winner_is_player_with_higher_rank_card_at_2
+    deck1 = Deck.new([@card1, @card2, @card5, @card8])
+    deck2 = Deck.new([@card4, @card3, @card6, @card7])
+
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+    turn = Turn.new(player1, player2)
+
+    assert_equal player2, turn.winner
+  end
+
 
 
   def test_it_sends_one_card_to_spoils_pile_if_basic
