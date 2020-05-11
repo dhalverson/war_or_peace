@@ -104,19 +104,21 @@ class TurnTest < Minitest::Test
     assert_equal "No Winner", turn.winner
   end
 
-  def test_it_sends_one_card_to_spoils_pile_if_basic
+  def test_it_sends_one_card_per_player_to_spoils_pile_if_basic
 
     assert_equal [@card1, @card3], @turn.pile_cards
   end
 
-  def test_if_it_equals_war_winner_is_player_with_higher_rank_card_at_2
+  def test_it_sends_three_cards_per_player_to_spoils_pile_if_war
+    deck1 = Deck.new([@card1, @card2, @card5, @card8])
+    deck2 = Deck.new([@card4, @card3, @card6, @card7])
 
-    assert_equal @player2, @turn.winner
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+    turn = Turn.new(player1, player2)
+
+    assert_equal [@card1, @card4, @card2, @card3, @card5, @card6], turn.pile_cards
   end
 
-  def test_if_it_equals_mad_if_both_players_cards_at_rank_0_and_2_are_the_same
-
-
-  end
 
 end
