@@ -47,7 +47,6 @@ class DeckTest < Minitest::Test
   def test_it_can_add_card
     card4 = Card.new(:club, "5", 5)
 
-     assert_equal @cards, @deck.add_card(card4)
+    assert_equal @cards, @deck.add_card(card4)
   end
-
 end

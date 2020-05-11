@@ -3,17 +3,6 @@ require './lib/deck'
 require './lib/player'
 require './lib/turn'
 
-  # def initialize(suit, value, rank)
-  #   @suits = [:diamond, :club, :heart, :spade]
-  #   @values = [2, 3, 4, 5, 6, 7, 8, 9, 10, "Jack", "Queen", "King", "Ace"]
-  #   @ranks = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
-  #   @cards = []
-  #
-  #     @ranks.size.times do |rank|
-  #       @cards << Card.new(suit, value)
-  #     end
-  # end
-
   def initialize
 
     cards = [
@@ -80,7 +69,3 @@ require './lib/turn'
   puts "The players today are #{player1.name} and #{player2.name}"
   puts "Type 'GO' to start the game!"
 end
-
-
-# start = gets.chomp
-# puts "Welcome to War! (or Peace) This game will be played with 52 cards."

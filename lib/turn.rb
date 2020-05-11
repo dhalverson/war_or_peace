@@ -51,13 +51,24 @@ class Turn
     if type == :basic
       @spoils_of_war << @players.map { |player| player.deck.remove_card}
     elsif type == :war
-      @spoils_of_war << @players.map { |player| player.deck.remove_card(3)}
+       3.times do
+         @spoils_of_war << player1.deck.remove_card
+         @spoils_of_war << player2.deck.remove_card
+       end
     else
-      @players.map { |player| player.deck.remove card(3)}
+      3.times do
+        player1.deck.remove_card
+        player2.deck.remove_card
+      end
     end
       @spoils_of_war.flatten
   end
 
-
-
+  # def award_spoils(turn_winner)
+  #   unless type == :mutually_assured_destruction
+  #     until @spoils_of_war == []
+  #       turn_winner.deck.add_card(@spoils_of_war)
+  #     end
+  #   end
+  # end
 end

@@ -129,6 +129,19 @@ class TurnTest < Minitest::Test
     turn = Turn.new(player1, player2)
 
     assert_equal [], turn.pile_cards
+  end
 
+  def test_it_adds_cards_in_spoils_to_winner
+    deck1 = Deck.new([@card1, @card2, @card5, @card8])
+    deck2 = Deck.new([@card3, @card4, @card6, @card7])
+
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+    turn = Turn.new(player1, player2)
+    turn.pile_cards
+    turn.award_spoils(turn.winner)
+
+    assert_equal [@card1, @card3], turn.spoils_of_war
+    assert_equal [@card1, @card2, @card5, @card8, @card4], @player2.deck
   end
 end
