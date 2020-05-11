@@ -93,7 +93,16 @@ class TurnTest < Minitest::Test
     assert_equal player2, turn.winner
   end
 
+  def test_it_equals_no_winner_when_mad
+    deck1 = Deck.new([@card1, @card2, @card5, @card8])
+    deck2 = Deck.new([@card4, @card3, @madcard, @card7])
 
+    player1 = Player.new("Megan", deck1)
+    player2 = Player.new("Aurora", deck2)
+    turn = Turn.new(player1, player2)
+
+    assert_equal "No Winner", turn.winner
+  end
 
   def test_it_sends_one_card_to_spoils_pile_if_basic
 
